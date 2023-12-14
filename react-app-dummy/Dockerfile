@@ -6,8 +6,13 @@ RUN addgroup app && adduser -S -G app app
 USER app
 
 WORKDIR /app
-COPY . .
+
+# Copy basic files for dependencies to be installed
+COPY package*.json .
 RUN npm install
+
+# Copy complete build context now after installing node modules
+COPY . .
 # Expose port 3000 for application to listen to events
 EXPOSE 3000
 
