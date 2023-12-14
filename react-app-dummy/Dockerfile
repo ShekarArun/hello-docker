@@ -10,3 +10,6 @@ COPY . .
 RUN npm install
 # Expose port 3000 for application to listen to events
 EXPOSE 3000
+
+# Set the starting command
+CMD ["npm", "start"]
