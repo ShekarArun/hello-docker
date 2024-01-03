@@ -8,6 +8,8 @@ RUN addgroup app && adduser -S -G app app
 USER app
 
 WORKDIR /app
+# Create a data directory to persist data
+RUN mkdir data
 
 # Below line allows current user to update package json files, assuming role as user app and group node
 COPY --chown=app:node package*.json ./
